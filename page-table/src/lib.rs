@@ -48,6 +48,7 @@ pub mod hlspec_user;
 //pub mod os_trace;
 
 #[cfg(feature="linuxmodule")]
+#[verifier::assume_unsupported_attributes]
 #[no_mangle]
 pub extern "C" fn veros_init() -> i64 {
     0 // return 0 to indicate success
@@ -57,6 +58,7 @@ pub extern "C" fn veros_init() -> i64 {
 // #[cfg(feature="linuxmodule")]
 // #[used(linker)]
 #[verifier(external_body)]
+#[verifier::assume_unsupported_attributes]
 #[no_mangle]
 pub extern "C" fn veros_map_frame(
     pt_ptr: u64,
@@ -80,6 +82,7 @@ pub extern "C" fn veros_map_frame(
 // #[cfg(feature="linuxmodule")]
 // #[used(linker)]
 #[verifier(external_body)]
+#[verifier::assume_unsupported_attributes]
 #[no_mangle]
 pub extern "C" fn veros_unmap_frame(
     pt_ptr: u64,
@@ -104,6 +107,7 @@ pub extern "C" fn veros_unmap_frame(
 // #[cfg(feature="linuxmodule")]
 // #[used(linker)]
 #[verifier(external_body)]
+#[verifier::assume_unsupported_attributes]
 #[no_mangle]
 pub extern "C" fn veros_mprotect_frame(
     pt_ptr: u64,
