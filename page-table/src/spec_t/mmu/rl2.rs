@@ -1330,7 +1330,8 @@ proof fn next_step_preserves_inv_unmapping__inflight_walks(pre: State, post: Sta
 
 /// Structure of this lemma is very similar to
 /// `step_Writeback_preserves_inv_unmapping__inflight_walks`.
-#[verifier(spinoff_prover)]
+#[verifier::spinoff_prover]
+#[verifier::rlimit(200)]
 proof fn step_WriteNonpos_preserves_inv_unmapping__inflight_walks(pre: State, post: State, c: Constants, step: Step, lbl: Lbl)
     requires
         step is WriteNonpos,
